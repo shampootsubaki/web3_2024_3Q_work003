@@ -1,0 +1,36 @@
+:root {
+  --primary: #212529;
+  --primary-text: #1a1a1a;
+  --secondary: #1d9dff;
+  --secondary-text: #ffffff;
+  --button-bg: #33b9c7;
+  --accent: #3a3939;
+  --accent-text: #000;
+}
+
+
+.progress-bar-container {
+  /* position: fixed; */
+  /* top: 100px; */
+  height: 5px;
+  width: 200px; 
+  z-index: 10;
+  border: #ffffff solid 1px;
+}
+
+.progress-bar-container div {
+  height: 100%;
+  background-color: rgb(0, 255, 255) !important; 
+  opacity: 0.7;
+}
+
+@font-face {
+	font-family: 'kfhimaji';
+	src: url('./KFhimaji.otf') format('opentype');
+}
+
+@media (min-width: 572px) {
+  .sp-only {
+      display: none;
+  }
+}

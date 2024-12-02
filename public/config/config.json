@@ -1,0 +1,19 @@
+{
+  "CONTRACT_ADDRESS": "0xcc04dfb321227d241b5aeb7fc7f39ee456a74f57",
+  "SCAN_LINK": "https://sepolia.etherscan.io/address/0xcc04dfb321227d241b5aeb7fc7f39ee456a74f57",
+  "NETWORK": {
+    "NAME": "Ethereum",
+    "SYMBOL": "SepoliaETH",
+    "ID": 11155111
+  },
+  "NFT_NAME": "NsNFT",
+  "SYMBOL": "NSNFT",
+  "MAX_SUPPLY": 10000,
+  "WEI_COST":     50000000000000000,
+  "DISPLAY_COST": 0.05,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "",
+  "MERKLEPROOF": "",
+  "SHOW_BACKGROUND": false
+}
