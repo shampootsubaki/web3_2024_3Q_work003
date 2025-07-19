@@ -111,11 +111,11 @@ function App() {
     blockchain.smartContract.methods
       .walletOfOwner(address)
       .send({
-        gasLimit: String(gasLimit),
+//        gasLimit: String(gasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: cost,
-        maxPriorityFeePerGas: "40000000000",
+//        value: cost,
+//        maxPriorityFeePerGas: "40000000000",
       })
       .once("error", (err) => {
         console.log(err);
