@@ -101,7 +101,6 @@ function App() {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
 
-    alert(address);    
     console.log("call walletOfOwner");
     console.log("mintingMFTs: ", cost);
     console.log("Cost: ", cost);
@@ -127,8 +126,6 @@ function App() {
         // checkMintedAl();
         // dispatch(fetchData(blockchain.account));
       });
-      alert(res);
-      console.log(res);
   };
 
   // const claimNFTsAl = () => {
@@ -566,6 +563,7 @@ function App() {
                           e.preventDefault();
                           // claimNFTsPS();
                           getWalletOfOwner();
+                          getData();
                         }}
                       >
                         {"walletOfOwnerを呼び出す"}
