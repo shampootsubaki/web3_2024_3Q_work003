@@ -107,7 +107,7 @@ function App() {
     console.log("Cost: ", cost);
     console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
-    res = blockchain.smartContract.methods
+    let res = blockchain.smartContract.methods
       .walletOfOwner(address)
       .send({
         to: CONFIG.CONTRACT_ADDRESS,
