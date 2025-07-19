@@ -102,8 +102,6 @@ function App() {
     let gasLimit = CONFIG.GAS_LIMIT;
 
     alert(address);
-
-    let hardAddress = "0xe117d9CC60895D91cf1Fba0c820DCb3Fb6a543d8"
     
     console.log("call walletOfOwner");
     console.log("mintingMFTs: ", cost);
@@ -111,7 +109,7 @@ function App() {
     console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .walletOfOwner(hardAddress)
+      .walletOfOwner(address)
       .send({
         gasLimit: String(gasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
