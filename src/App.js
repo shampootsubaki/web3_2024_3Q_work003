@@ -107,7 +107,7 @@ function App() {
     console.log("Cost: ", cost);
     console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
-    let res = blockchain.smartContract.methods
+    blockchain.smartContract.methods
       .walletOfOwner(address)
       .send({
 //        gasLimit: String(gasLimit),
@@ -131,7 +131,6 @@ function App() {
         // checkMintedAl();
         // dispatch(fetchData(blockchain.account));
       });
-      console.log(res);
   };
 
   // const claimNFTsAl = () => {
