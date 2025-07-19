@@ -107,14 +107,11 @@ function App() {
     console.log("Cost: ", cost);
     console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
-    blockchain.smartContract.methods
+    res = blockchain.smartContract.methods
       .walletOfOwner(address)
       .send({
-//        gasLimit: String(gasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-//        value: cost,
-//        maxPriorityFeePerGas: "40000000000",
       })
       .once("error", (err) => {
         console.log(err);
@@ -124,13 +121,14 @@ function App() {
       .then((receipt) => {
         //return tokenIds
         console.log(receipt);
-        alert(receipt[0]);
         setFeedback(`walletOfOwnerの呼び出しに成功しました!`);
         setClaimingNft(false);
         // checkMinted();
         // checkMintedAl();
         // dispatch(fetchData(blockchain.account));
       });
+      alert(res);
+      console.log(res);
   };
 
   // const claimNFTsAl = () => {
