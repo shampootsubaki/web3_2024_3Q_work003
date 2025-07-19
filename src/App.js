@@ -9,6 +9,7 @@ import axios from "axios";
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
+// FEのメインアプリ
 function App() {
   // MerkleProof
   let { MerkleTree } = require("merkletreejs");
@@ -87,6 +88,36 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(`ミントに成功しました!`);
+        setClaimingNft(false);
+        // checkMinted();
+        // checkMintedAl();
+        // dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const getWalletOfOwner = () => {
+
+    let tokenId = "";
+    
+    console.log("call walletOfOwner");
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint(tokenId)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: totalCostWei,
+        maxPriorityFeePerGas: "40000000000",
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("walletOfOwnerの呼び出しに失敗しました.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(`walletOfOwnerの呼び出しに成功しました!`);
         setClaimingNft(false);
         // checkMinted();
         // checkMintedAl();
