@@ -98,6 +98,8 @@ function App() {
   const getWalletOfOwner = () => {
 
     let address = blockchain.account;
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
 
     alert(address);
 
@@ -108,11 +110,11 @@ function App() {
     blockchain.smartContract.methods
       .walletOfOwner(hardAddress)
       .send({
-//        gasLimit: String(totalGasLimit),
+        gasLimit: String(gasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-//        value: totalCostWei,
-//        maxPriorityFeePerGas: "40000000000",
+        value: cost,
+        maxPriorityFeePerGas: "40000000000",
       })
       .once("error", (err) => {
         console.log(err);
