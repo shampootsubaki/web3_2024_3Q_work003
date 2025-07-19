@@ -95,7 +95,7 @@ function App() {
       });
   };
 
-  const getWalletOfOwner = () => {
+  const getWalletOfOwner = async () => {
 
     let address = blockchain.account;
     let cost = CONFIG.WEI_COST;
@@ -106,7 +106,9 @@ function App() {
     console.log("Cost: ", cost);
     console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
-    let res = blockchain.smartContract.methods
+
+    //非同期処理
+    let res = await blockchain.smartContract.methods
       .walletOfOwner(address)
       .send({
         to: CONFIG.CONTRACT_ADDRESS,
@@ -126,6 +128,8 @@ function App() {
         // checkMintedAl();
         // dispatch(fetchData(blockchain.account));
       });
+
+      console.log("responce: ", res);
   };
 
   // const claimNFTsAl = () => {
