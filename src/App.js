@@ -118,8 +118,9 @@ function App() {
       //   // dispatch(fetchData(blockchain.account));
       // });
 
-      console.log("responce: ", res);    
-  }
+      console.log("responce: ", res);
+      setClaimingNft(false);
+    }
 
   const getWalletOfOwner = async () => {
 
@@ -156,6 +157,8 @@ function App() {
       // });
 
       console.log("responce: ", res);
+
+      setClaimingNft(false);
   };
 
   // const claimNFTsAl = () => {
