@@ -106,6 +106,9 @@ function App() {
     let hardAddress = "0xe117d9CC60895D91cf1Fba0c820DCb3Fb6a543d8"
     
     console.log("call walletOfOwner");
+    console.log("mintingMFTs: ", cost);
+    console.log("Cost: ", cost);
+    console.log("Gas limit: ", gasLimit);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .walletOfOwner(hardAddress)
@@ -557,8 +560,12 @@ function App() {
                       <s.TextDescription>
                         {"このへんにwalletOfOwnerボタンが出る"}
                       </s.TextDescription>
-                      <>
-                      </>
+                    </s.Container>
+                    <s.Container
+                      ai={"center"}
+                      jc={"center"}
+                      fd={"row"}
+                    >
                       <s.StyledButtonPS
                         onClick={(e) => {
                           e.preventDefault();
