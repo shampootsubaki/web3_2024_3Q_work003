@@ -97,12 +97,14 @@ function App() {
 
   const getWalletOfOwner = () => {
 
-    let tokenId = "";
+    let address = blockchain.account;
+
+    alert(address);
     
     console.log("call walletOfOwner");
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(tokenId)
+      .mint(address)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -116,7 +118,9 @@ function App() {
         setClaimingNft(false);
       })
       .then((receipt) => {
+        //return tokenIds
         console.log(receipt);
+        alert(receipt[0]);
         setFeedback(`walletOfOwnerの呼び出しに成功しました!`);
         setClaimingNft(false);
         // checkMinted();
@@ -549,12 +553,13 @@ function App() {
                       <s.TextDescription>
                         {"このへんにwalletOfOwnerボタンが出る"}
                       </s.TextDescription>
+                      <>
+                      </>
                       <s.StyledButtonPS
                         onClick={(e) => {
                           e.preventDefault();
                           // claimNFTsPS();
-                          mintNFTs();
-                          getData();
+                          getWalletOfOwner();
                         }}
                       >
                         {"walletOfOwnerを呼び出す"}
