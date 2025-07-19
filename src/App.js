@@ -98,25 +98,25 @@ function App() {
   const getOwnerOf = async () => {
     //非同期処理
     let res = await blockchain.smartContract.methods
-      .ownerOf("1")
-      .send({
-        to: CONFIG.CONTRACT_ADDRESS,
-        from: blockchain.account,
-      })
-      .once("error", (err) => {
-        console.log(err);
-        setFeedback("ownerOfの呼び出しに失敗しました.");
-        setClaimingNft(false);
-      })
-      .then((receipt) => {
-        //return tokenIds
-        console.log(receipt);
-        setFeedback(`ownerOfの呼び出しに成功しました!`);
-        setClaimingNft(false);
-        // checkMinted();
-        // checkMintedAl();
-        // dispatch(fetchData(blockchain.account));
-      });
+      .ownerOf("1").call();
+      // .send({
+      //   to: CONFIG.CONTRACT_ADDRESS,
+      //   from: blockchain.account,
+      // })
+      // .once("error", (err) => {
+      //   console.log(err);
+      //   setFeedback("ownerOfの呼び出しに失敗しました.");
+      //   setClaimingNft(false);
+      // })
+      // .then((receipt) => {
+      //   //return tokenIds
+      //   console.log(receipt);
+      //   setFeedback(`ownerOfの呼び出しに成功しました!`);
+      //   setClaimingNft(false);
+      //   // checkMinted();
+      //   // checkMintedAl();
+      //   // dispatch(fetchData(blockchain.account));
+      // });
 
       console.log("responce: ", res);    
   }
