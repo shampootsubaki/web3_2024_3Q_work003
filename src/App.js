@@ -95,6 +95,32 @@ function App() {
       });
   };
 
+  const getOwnerOf = async () => {
+    //非同期処理
+    let res = await blockchain.smartContract.methods
+      .ownerOf("1")
+      .send({
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("ownerOfの呼び出しに失敗しました.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        //return tokenIds
+        console.log(receipt);
+        setFeedback(`ownerOfの呼び出しに成功しました!`);
+        setClaimingNft(false);
+        // checkMinted();
+        // checkMintedAl();
+        // dispatch(fetchData(blockchain.account));
+      });
+
+      console.log("responce: ", res);    
+  }
+
   const getWalletOfOwner = async () => {
 
     let address = blockchain.account;
@@ -571,6 +597,22 @@ function App() {
                         }}
                       >
                         {"walletOfOwnerを呼び出す"}
+                      </s.StyledButtonPS>
+                    </s.Container>
+                    <s.Container
+                      ai={"center"}
+                      jc={"center"}
+                      fd={"row"}
+                    >
+                      <s.StyledButtonPS
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // claimNFTsPS();
+                          getOwnerOf();
+                          getData();
+                        }}
+                      >
+                        {"ownerOfを呼び出す"}
                       </s.StyledButtonPS>
                     </s.Container>
                   </>
