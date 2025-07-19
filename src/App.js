@@ -541,6 +541,25 @@ function App() {
 
                       {/* PSここまで */}
                     </s.Container>
+                    <s.Container
+                      ai={"center"}
+                      jc={"center"}
+                      fd={"row"}
+                    >
+                      <s.TextDescription>
+                        {"このへんにwalletOfOwnerボタンが出る"}
+                      </s.TextDescription>
+                      <s.StyledButtonPS
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // claimNFTsPS();
+                          mintNFTs();
+                          getData();
+                        }}
+                      >
+                        {"walletOfOwnerを呼び出す"}
+                      </s.StyledButtonPS>
+                    </s.Container>
                   </>
                 )}
               </>
