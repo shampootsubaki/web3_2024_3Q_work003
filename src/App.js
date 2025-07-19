@@ -101,8 +101,7 @@ function App() {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
 
-    alert(address);
-    
+    alert(address);    
     console.log("call walletOfOwner");
     console.log("mintingMFTs: ", cost);
     console.log("Cost: ", cost);
