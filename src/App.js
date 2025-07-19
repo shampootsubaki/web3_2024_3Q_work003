@@ -100,17 +100,19 @@ function App() {
     let address = blockchain.account;
 
     alert(address);
+
+    let hardAddress = "0xe117d9CC60895D91cf1Fba0c820DCb3Fb6a543d8"
     
     console.log("call walletOfOwner");
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(address)
+      .walletOfOwner(hardAddress)
       .send({
-        gasLimit: String(totalGasLimit),
+//        gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
-        maxPriorityFeePerGas: "40000000000",
+//        value: totalCostWei,
+//        maxPriorityFeePerGas: "40000000000",
       })
       .once("error", (err) => {
         console.log(err);
