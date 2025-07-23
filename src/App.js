@@ -583,7 +583,7 @@ function App() {
                       fd={"row"}
                     >
                       <s.TextDescription>
-                        {"このへんにwalletOfOwnerボタンが出る"}
+                        {"walletOfOwnerボタン"}
                       </s.TextDescription>
                     </s.Container>
                     <s.Container
@@ -602,22 +602,33 @@ function App() {
                         {"walletOfOwnerを呼び出す"}
                       </s.StyledButtonPS>
                     </s.Container>
-                    <s.Container
-                      ai={"center"}
-                      jc={"center"}
-                      fd={"row"}
-                    >
-                      <s.StyledButtonPS
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // claimNFTsPS();
-                          getOwnerOf();
-                          getData();
-                        }}
+                    <>
+                      <s.Container
+                        ai={"center"}
+                        jc={"center"}
+                        fd={"row"}
                       >
-                        {"ownerOfを呼び出す"}
-                      </s.StyledButtonPS>
-                    </s.Container>
+                        <s.TextDescription>
+                          {"ownerOfボタン"}
+                        </s.TextDescription>
+                      </s.Container>
+                      <s.Container
+                        ai={"center"}
+                        jc={"center"}
+                        fd={"row"}
+                      >
+                        <s.StyledButtonPS
+                          onClick={(e) => {
+                            e.preventDefault();
+                            // claimNFTsPS();
+                            getOwnerOf();
+                            getData();
+                        }}
+                        >
+                          {"ownerOfを呼び出す"}
+                        </s.StyledButtonPS>
+                      </s.Container>
+                    </>
                   </>
                 )}
               </>
