@@ -108,9 +108,8 @@ function App() {
 
 //      console.log("responce: ", res);
 
-    res.forEach(function(res) {
-      console.log("responce: ",res);
-    });
+    console.log("responce: ",res);
+
     alert("please check console.log");
     setClaimingNft(false);
   }
